@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">back to home</a>
+        <div class="sign-in-box">
+            <h1>Sign In</h1>
+            <form action="/login" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit" class="btn">Sign In</button>
+                <a href="/forgot-password" class="forgot-password">Forgot password?</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
