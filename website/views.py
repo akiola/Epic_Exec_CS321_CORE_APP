@@ -323,10 +323,10 @@ def view_all_applicants():
 @login_required
 @main_blueprint.route('/view_application/<string:student_id>')
 def view_application(student_id):
-    applicant = ApplicantInformation.query.filter_by(
-        student_id=student_id).first_or_404()
-    preferences = ApplicantPreferences.query.filter_by(
-        student_id=student_id).first()
+    applicant = (ApplicantInformation.query.filter_by(
+        student_id=student_id).first_or_404()).rewrite_applicant_data()
+    preferences = (ApplicantPreferences.query.filter_by(
+        student_id=student_id).first()).rewrite_preferences()
     additional_info = AdditionalInformation.query.filter_by(
         student_id=student_id).first()
     return render_template('view_application.html', applicant=applicant, preferences=preferences, additional_info=additional_info)

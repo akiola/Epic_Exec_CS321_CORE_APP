@@ -113,9 +113,11 @@
     </div>
 
     <div class="home-icon">
+
         <a href="{{ url_for('main.admin_home') }}" title="Go to My New Page">
             <i class="fas fa-home"></i>
         </a>
+
     </div>
 
     <h1 class="display-1">Application Details</h1>
@@ -123,9 +125,13 @@
     <div class="container">
 
         <div class="section-heading">
+
             <h2>Personal Information</h2>
+
         </div>
+
         <div class="section-content">
+
             <p><strong>Name:</strong> {{ applicant.first_name }} {{ applicant.last_name }}</p>
             <p><strong>Preferred Name:</strong> {{ applicant.preferred_name or 'N/A' }}</p>
             <p><strong>Pronouns:</strong> {{ applicant.pronouns }}</p>
@@ -134,60 +140,90 @@
             <p><strong>Current Room Number:</strong> {{ applicant.current_room_number }}</p>
             <p><strong>Email:</strong> {{ applicant.current_email }}</p>
             <p><strong>Phone Number:</strong> {{ applicant.current_phone_number }}</p>
+
         </div>
 
         <div class="section-heading">
+
             <h2>Academic Information</h2>
+
         </div>
+
         <div class="section-content">
+
             <p><strong>Major 1:</strong> {{ applicant.major_1 }}</p>
             <p><strong>Major 2:</strong> {{ applicant.major_2 or 'N/A' }}</p>
             <p><strong>Minor 1:</strong> {{ applicant.minor_1 or 'N/A' }}</p>
             <p><strong>Minor 2:</strong> {{ applicant.minor_2 or 'N/A' }}</p>
             <p><strong>Class Year:</strong> {{ applicant.class_year }}</p>
             <p><strong>Cumulative GPA:</strong> {{ applicant.cumulative_gpa }}</p>
+
         </div>
 
         <div class="section-heading">
+
             <h2>CA Experience</h2>
+
         </div>
+
         <div class="section-content">
-            <p><strong>Returning CA or New CA:</strong> {{ applicant.returning_ca_or_new_ca }}</p>
-            <p><strong>Leadership Experience:</strong> {{ ', '.join(applicant.leadership_experience) }}</p>
+
+            <p><strong>Returning CA or New CA:</strong> <br> {{ applicant.returning_ca_or_new_ca }}</p>
+            <p><strong>Leadership Experience:</strong> <br> {{ ', '.join(applicant.leadership_experience) }}</p>
+        
         </div>
 
         <div class="section-heading">
+
             <h2>Preferences</h2>
+
         </div>
+
         <div class="section-content">
+
             <p><strong>Substance-Free Housing Interest:</strong> {{ preferences.substance_free_housing_interest }}</p>
             <p><strong>Healthy Colby Interest:</strong> {{ preferences.healthy_colby_interest }}</p>
             <p><strong>Population Interest:</strong> {{ preferences.population_interest }}</p>
-            <p><strong>Staff Interest:</strong> {{ preferences.staff_interest }}</p>
+            <p><strong>Staff Interest:</strong> <br> 
+                {{ preferences.staff_interest_1 }} <br>
+                {{ preferences.staff_interest_2 }}</p>
             <p><strong>ILLC Interest:</strong> {{ preferences.illc_interest }}</p>
+        
         </div>
 
         <div class="section-heading">
-            <h2>Additional Information</h2>
+
+            <h2>Free Response and Additional Information</h2>
+
         </div>
+
         <div class="section-content">
-            <p><strong>Why CA:</strong> {{ additional_info.why_ca }}</p>
+
+            <p><strong>"What kind of student leader do you envision yourself to be in the residential community? Please draw on your experiences as a student living within the residential community":</strong> 
+                <br> {{ additional_info.why_ca }}</p>
             <p><strong>Additional Comments:</strong> {{ additional_info.additional_comments or 'N/A' }}</p>
+        
         </div>
 
         <div class="section-heading">
+
             <h2>Application Status</h2>
-        </div>
+
+        </div> 
+
         <div class="section-content">
+
             <p><strong>Status:</strong> {{ applicant.application_status }}</p>
-            <p><strong>Interview Status:</strong> {{ applicant.get_interview_status() }}</p>
+            <p><strong>Interview Status:</strong> {{ applicant.interview_status }}</p>
             <p><strong>Assessment Status:</strong> {{ applicant.assessment_status }}</p>
+        
         </div>
 
         <div class="section-heading text-center">
+
             <a href="{{ url_for('main.assessment_form', student_id=applicant.student_id) }}" class="btn btn-info btn-lg btn-block">
-                Assess Applicant
-            </a>
+                Assess Applicant </a>
+
         </div>
     </div>
 
